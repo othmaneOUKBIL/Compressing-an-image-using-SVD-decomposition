@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 #transformer l'image en tableau de deux dimansion 
-im = Image.open("C:/Users/O-OUK/OneDrive/Bureau/lena.color1.png")
+im = Image.open("lien d'image ")
 T = np.asarray(im)
 R=T[:,:,0]
 G=T[:,:,1]

@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 from PIL import Image
 
 #transformer l'image en tableau de deux dimansion 
-im = Image.open("C:/Users/O-OUK/OneDrive/Bureau/lena_gris1.png")
+im = Image.open("lien d'image")
 T = np.asarray(im)
 
 
@@ -34,14 +34,14 @@ def recombine(u, sigma, vt, ind):
 #appliquer la methode de svd pour pllusieur valeur de k 
 for i in [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150]:
     cc = recombine(u, sigma, vh, i)
-    cc1 = Image.fromarray(cc)
-    cc1.show()
+    img = Image.fromarray(cc)
+    img.show()
 
 plt.figure(1)
 plt.title('les valeurs singuliers en fonction de k',color='red')
 plt.xlabel('les valeurs de k',color='blue')
 plt.ylabel('les valeurs singuliers',color='blue')
-#plt.plot([i for i in range(395)],sigma,'k-',5,color='green')
+plt.plot([i for i in range(395)],sigma,'k-',5,color='green')
 #calculer la variance de sigma
 var=statistics.variance(sigma)
 
@@ -63,5 +63,5 @@ print('la valeur de k permettant de capter 95% de la variance : ',val)
 
 #Afficher  la compression via SVD pour cette valeur.
 cc = recombine(u, sigma, vh, val)
-cc1 = Image.fromarray(cc)
-cc1.show()
+img = Image.fromarray(cc)
+img.show()
